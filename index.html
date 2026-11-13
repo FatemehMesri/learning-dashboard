@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A personal dashboard for tracking courses, books, and continuous learning.">
+  <title>My Learning Journey</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="My Learning Journey home">
+      <span class="brand-mark">L</span>
+      <span>Learning Journal</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#overview">Overview</a>
+      <a href="#courses">Courses</a>
+      <a href="#books">Books</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">PERSONAL LEARNING SPACE</p>
+        <h1>My Learning Journey</h1>
+        <p class="hero-copy">A simple place to track what I'm learning, what I've read, and what's next.</p>
+      </div>
+      <div class="hero-note"><span class="pulse"></span> Learning in progress</div>
+    </section>
+
+    <section id="overview" class="overview-section">
+      <div class="section-heading">
+        <div><p class="eyebrow">AT A GLANCE</p><h2>Learning overview</h2></div>
+        <span class="muted" id="last-updated">Your personal tracker</span>
+      </div>
+      <div class="stats-grid">
+        <article class="stat-card"><span class="stat-label">Active courses</span><strong id="active-courses">0</strong><span class="stat-foot">Currently studying</span></article>
+        <article class="stat-card"><span class="stat-label">Books in progress</span><strong id="active-books">0</strong><span class="stat-foot">Currently reading</span></article>
+        <article class="stat-card"><span class="stat-label">Completed</span><strong id="completed-count">0</strong><span class="stat-foot">Courses and books</span></article>
+        <article class="stat-card highlight-stat"><span class="stat-label">Overall progress</span><strong id="overall-progress">0%</strong><div class="progress-track"><span id="overall-bar"></span></div></article>
+      </div>
+    </section>
+
+    <section id="courses" class="content-section">
+      <div class="section-heading">
+        <div><p class="eyebrow">STRUCTURED LEARNING</p><h2>Online courses</h2></div>
+        <button class="primary-button" data-open-form="course">＋ Add course</button>
+      </div>
+      <div id="course-list" class="item-grid"></div>
+      <p id="empty-courses" class="empty-state">No courses added yet. Add your first course to start tracking your progress.</p>
+    </section>
+
+    <section id="books" class="content-section">
+      <div class="section-heading">
+        <div><p class="eyebrow">INDEPENDENT STUDY</p><h2>Books & reading</h2></div>
+        <button class="primary-button" data-open-form="book">＋ Add book</button>
+      </div>
+      <div id="book-list" class="item-grid"></div>
+      <p id="empty-books" class="empty-state">No books added yet. Add a book you're currently reading.</p>
+    </section>
+
+    <section id="completed" class="content-section completed-section">
+      <div class="section-heading"><div><p class="eyebrow">MILESTONES</p><h2>Completed learning</h2></div></div>
+      <div id="completed-list" class="completed-list"></div>
+      <p id="empty-completed" class="empty-state">Completed courses and books will appear here.</p>
+    </section>
+
+    <footer><span>Learning Journal</span><span>Small steps, steady progress.</span></footer>
+  </main>
+
+  <dialog id="item-dialog" class="item-dialog">
+    <form id="item-form" method="dialog">
+      <div class="dialog-heading"><div><p class="eyebrow" id="form-eyebrow">NEW ITEM</p><h2 id="form-title">Add a course</h2></div><button type="button" class="icon-button" id="close-dialog" aria-label="Close">×</button></div>
+      <input type="hidden" id="item-type">
+      <input type="hidden" id="item-id">
+      <label>Title <input id="title" required maxlength="100" placeholder="e.g. Introduction to Quantum Chemistry"></label>
+      <label>Short description <textarea id="description" rows="2" maxlength="240" placeholder="One or two lines about what this course or book covers."></textarea></label>
+      <div id="course-fields">
+        <label>Provider / platform <input id="provider" placeholder="e.g. Coursera, MIT OpenCourseWare"></label>
+        <label>Instructor <input id="instructor" placeholder="Instructor's name"></label>
+        <label>Course link <input id="url" type="url" placeholder="https://..."></label>
+      </div>
+      <div id="book-fields" hidden>
+        <label>Author <input id="author" placeholder="Author's name"></label>
+        <label>Publisher / book link <input id="book-link" placeholder="Publisher or URL"></label>
+        <label>Total pages <input id="total-pages" type="number" min="1" placeholder="Optional"></label>
+        <label>Pages read <input id="pages-read" type="number" min="0" placeholder="Optional"></label>
+      </div>
+      <div class="form-row">
+        <label>Start date <input id="start-date" type="date"></label>
+        <label>Target completion <input id="target-date" type="date"></label>
+      </div>
+      <label>Progress <output id="progress-output">0%</output><input id="progress" type="range" min="0" max="100" value="0"></label>
+      <p class="form-hint">Progress is a self-reported estimate. Set it to 100% when you finish.</p>
+      <div class="dialog-actions"><button type="button" class="secondary-button" id="cancel-dialog">Cancel</button><button type="submit" class="primary-button">Save item</button></div>
+    </form>
+  </dialog>
+  <script src="script.js"></script>
+</body>
+</html>
