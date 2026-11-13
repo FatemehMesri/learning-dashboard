@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A personal learning dashboard for tracking courses, books, and progress.">
+  <title>My Learning Journey</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#overview" aria-label="Learning Journal home">
+      <span class="brand-mark">L</span>
+      <span>Learning Journal</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#overview">Overview</a>
+      <a href="#courses">Courses</a>
+      <a href="#books">Books</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="overview">
+      <div>
+        <p class="eyebrow">PERSONAL LEARNING SPACE</p>
+        <h1>My Learning Journey</h1>
+        <p class="hero-copy">A simple place to track what I'm learning, what I've read, and what's next.</p>
+      </div>
+      <span class="status-pill"><span class="status-dot"></span> Learning in progress</span>
+    </section>
+
+    <section class="overview-section" aria-labelledby="overview-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">AT A GLANCE</p>
+          <h2 id="overview-title">Learning overview</h2>
+        </div>
+        <p class="muted">My personal tracker</p>
+      </div>
+      <div class="stats-grid">
+        <article class="stat-card">
+          <p>Active courses</p><strong id="active-course-count">0</strong><span>Currently studying</span>
+        </article>
+        <article class="stat-card">
+          <p>Books in progress</p><strong id="active-book-count">0</strong><span>Currently reading</span>
+        </article>
+        <article class="stat-card">
+          <p>Completed</p><strong id="completed-count">0</strong><span>Courses and books</span>
+        </article>
+        <article class="stat-card">
+          <p>Overall progress</p><strong class="accent" id="overall-progress">0%</strong>
+          <div class="progress-track"><span id="overall-progress-bar"></span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section" id="courses">
+      <div class="section-heading">
+        <div><p class="eyebrow">STRUCTURED LEARNING</p><h2>Online courses</h2></div>
+        <span class="count-label" id="course-count">0 courses</span>
+      </div>
+      <div class="card-grid" id="course-list"></div>
+      <p class="empty-state" id="courses-empty" hidden>No courses have been added yet.</p>
+    </section>
+
+    <section class="content-section" id="books">
+      <div class="section-heading">
+        <div><p class="eyebrow">INDEPENDENT STUDY</p><h2>Books &amp; reading</h2></div>
+        <span class="count-label" id="book-count">0 books</span>
+      </div>
+      <div class="card-grid" id="book-list"></div>
+      <p class="empty-state" id="books-empty" hidden>No books have been added yet.</p>
+    </section>
+
+    <section class="content-section" id="completed">
+      <div class="section-heading">
+        <div><p class="eyebrow">MILESTONES</p><h2>Completed learning</h2></div>
+      </div>
+      <div class="completed-list" id="completed-list"></div>
+      <p class="empty-state" id="completed-empty" hidden>Completed courses and books will appear here.</p>
+    </section>
+  </main>
+
+  <footer><p>Learning Journal <span aria-hidden="true">·</span> A record of continuous learning</p></footer>
+  <script src="script.js"></script>
+</body>
+</html>
